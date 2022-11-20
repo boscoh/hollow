@@ -1,7 +1,7 @@
 
 
 ===================================================
- Hollow 1.1 (c) 2009.  Bosco Ho and Franz Gruswitz 
+ Hollow 1.3 (c) 2009.  Bosco Ho and Franz Gruswitz 
 ===================================================
 
 
@@ -16,12 +16,13 @@ To see the options, type in the command line:
 The program requires Python 2.4 or higher. 
 
 Please refer to the website for illustrated tutorials:
+Please refer to the [website](https://boscoh.github.io/hollow/) for illustrated tutorials:
 
   1) The interior pathways of myoglobin:
-       http://hollow.sourceforge.net/myoglobin.html.
+       https://boscoh.github.io/hollow/myoglobin.html
 
   2) The channel surface of a phosphate proin:
-       http://hollow.sourceforge.net/channel.html.
+       https://boscoh.github.io/hollow/channel.html
 
 
 # Automated Surface Detection Mode
