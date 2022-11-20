@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0089)http://hollow.sourceforge.net/interpreter.html -->
+<html>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=windows-1252"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="./hollow - in the IDLE intepreter_files/style.css"
+        />
+        <title>hollow - in the IDLE intepreter</title>
+    </head>
+
+    <body>
+
+        <center>
+            <div id="container" style="width: 550px">
+                <h1>
+                    <a
+                        href="./"
+                        >HOLLOW</a
+                    >
+                </h1>
+                <h2>in the IDLE interpreter</h2>
+
+                <p>
+                    Although HOLLOW was designed to be a command-line utility
+                    running under a UNIX environment, it can also be used in the
+                    PYTHON interpreter. This is useful in WINDOWS, for instance,
+                    which is not very friendly to command-line utilities.
+                </p>
+                <p>To use HOLLOW in the Python interpreter:</p>
+                <ol>
+                    <li>
+                        <p>
+                            Copy your pdb files to the same directory as the
+                            hollow.py file
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Assuming that Python is installed properly, to
+                            launch HOLLOW in the IDLE Python interpreter, go to
+                            your file manager and double click on hollow.py.
+                            Otherwise, right-click and choose:
+                        </p>
+                        <code> Edit with IDLE </code>
+                    </li>
+
+                    <li>
+                        <p>
+                            Now click on the window that shows the Hollow.py
+                            file.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Go to the pull-down menu and choose Run-&gt;Run
+                            Module, which will take you to the Python Shell
+                            Window. This should print out a help message.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>In the Python Shell Window type:</p>
+                        <code> &gt;&gt;&gt; import hollow </code>
+                    </li>
+
+                    <li>
+                        <p>If you need to see the message again:</p>
+                        <code> &gt;&gt;&gt; hollow.help() </code>
+                    </li>
+
+                    <li>
+                        <p>
+                            The definition of the python routine that carries
+                            out the HOLLOW calculation is:
+                        </p>
+                        <pre><code>  make_hollow_spheres(
+     pdb,
+     out_pdb="",
+     grid_spacing=0.5,
+     size_interior_probe=1.4,
+     is_skip_waters=True,
+     size_surface_probe=8.0
+     constraint_file="",
+     size_bfactor_probe=0)
+</code></pre>
+                        <p>
+                            Let's say you are studying the PDB file 3HBS.pdb,
+                            the following commands can be used to run HOLLOW
+                            using different options:
+                        </p>
+                        <code>
+                            &gt;&gt;&gt;
+                            hollow.make_hollow_spheres('3HBS.pdb','hollow.pdb',
+                            0.5)
+                            <br />
+                            <br />
+                            &gt;&gt;&gt; hollow.make_hollow_spheres('3HBS.pdb',
+                            'hollow.pdb',
+                            0.5,1.40,True,8.00,'2oi2.constraint',4.0)
+                            <br />
+                            <br />
+                            &gt;&gt;&gt; hollow.make_hollow_spheres('3HBS.pdb',
+                            grid_spacing=0.25)
+                            <br />
+                            <br />
+                            &gt;&gt;&gt; hollow.make_hollow_spheres('3HBS.pdb')
+                        </code>
+                    </li>
+                </ol>
+                <p>
+                    <br />
+                    The output of the program should look something like this:
+                </p>
+                <pre><code>Loading 3BHS.pdb
+Skipping water molecules
+Setting up grid: 233 x 233 x 233, spacing 0.500, width 116.9
+   &gt;&gt;&gt;&gt;&gt;&gt; 11.21s
+Excluding protein bulk from grid with 1.4 angstrom probe
+   &gt;&gt;&gt;&gt;&gt;&gt; 15.62s
+Calculating asa of atoms in protein
+   &gt;&gt;&gt;&gt;&gt;&gt; 2:38.55s
+Excluding surface shell from grid with 8.0 angstrom probe
+   &gt;&gt;&gt;&gt;&gt;&gt; 14:25.54s
+Excluding edges
+Excluding surrounded points
+   &gt;&gt;&gt;&gt;&gt;&gt; 58.66s
+Saving hollow spheres to 3BHS-hollow.pdb
+</code>
+</pre>
+
+                <p>
+                    Once the hollow spheres are generated, you can generate
+                    surfaces for
+                    <a
+                        href="http://hollow.sourceforge.net/channel.html"
+                        >channels</a
+                    >
+                    or
+                    <a
+                        href="http://hollow.sourceforge.net/myoglobin.html"
+                        >interior voids</a
+                    >.
+                </p>
+
+                <br clear="all" />
+            </div>
+
+            <script
+                src="./hollow - in the IDLE intepreter_files/urchin.js"
+                type="text/javascript"
+            ></script>
+        </center>
+    </body>
+</html>

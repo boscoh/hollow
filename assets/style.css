@@ -1,0 +1,97 @@
+  /* hand-coded css in the page! */
+  body {
+    background-color: #000000;
+    background-repeat:repeat;
+    padding: 0;
+    padding-bottom: 200px;
+    margin:0;
+    text-align: left;
+    font-size: 0.9em;
+    font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    color: #888;
+  }
+  #container {
+    background-color: #000000;
+    padding: 2em 125px 1em 125px;
+    margin:0;
+    width: 550px;
+  }
+  h1, h2, h3 {
+    font-family: "Lucida Grande", sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 400%;
+    margin-top: 0.5em;
+    font-weight: bold;
+    text-shadow: #555 3px 3px 5px;
+  }
+  
+  h2 {
+    font-size: 150%;
+    margin: 1.5em auto 0.3em;
+    padding-bottom: 0.7em;
+  }
+  
+  h1, h2, h3, p, ol, ul {
+  }
+  ul {
+    text-align: left;
+  }
+  li {
+    padding: 0; margin: 0;
+  }
+
+  a:link, a:visited {
+    color:#5588aa;
+    text-decoration:none;
+    }
+  a:hover {
+    color: #FF3333;
+  }
+  a img {
+    border-width:0;
+  }
+  p {
+    text-align: left;
+    padding-bottom: 0.5em;
+  }
+  code {
+    display: block;
+    width: 100%;
+    background-color: #111;
+    color: #FFF;
+    padding: 5px 10px 5px 10px;
+    text-align: left;
+    letter-spacing: 0.1em;
+    line-height: 2em;
+    font-size: .9em;
+  }
+  
+/*
+     FILE ARCHIVED ON 07:22:51 Apr 18, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 06:37:55 Nov 19, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 113.861
+  exclusion.robots: 0.09
+  exclusion.robots.policy: 0.08
+  RedisCDXSource: 1.389
+  esindex: 0.019
+  LoadShardBlock: 84.455 (3)
+  PetaboxLoader3.datanode: 85.523 (4)
+  CDXLines.iter: 24.295 (3)
+  load_resource: 59.007
+  PetaboxLoader3.resolve: 39.032
+*/
