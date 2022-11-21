@@ -1,8 +1,9 @@
 
 
-===================================================
- Hollow 1.3 (c) 2009.  Bosco Ho and Franz Gruswitz 
-===================================================
+
+# Hollow 1.3 
+### (c) 2021, Bosco Ho and Franz Gruswitz 
+
 
 
 Hollow generates fake atoms that identifies voids, pockets, channels and depressions in a protein structure specified in the PDB format. 
@@ -25,7 +26,7 @@ Please refer to the [website](https://boscoh.github.io/hollow/) for illustrated 
        https://boscoh.github.io/hollow/channel.html
 
 
-# Automated Surface Detection Mode
+## Automated Surface Detection Mode
 
 In the automated (also the default) mode, a grid is constructed over the entire protein. To analyze large proteins, due to the large size of the resultant grid, use only coarse grid spacings of 1.0 angstroms or 0.5 angstroms. 
 
@@ -34,7 +35,7 @@ The automated mode requires several intermediate calculations. The Accessible Su
 
 
 
-# Constrained Mode
+## Constrained Mode
 
 In the constrained mode, either a sphere or a cylinder is specified in a separate file. Grid points are constructed within these constraints, and thus, there is no need for the costly calculation that sweeps over the entire surface. 
 
@@ -44,15 +45,16 @@ We also label the occupancy with 1.0 if the sphere is within the accessible surf
 
 Here's a sample spherical constraint file. The format is a Python dictionary:
 
-  {
-    'type': 'sphere',          # 'cylinder' or 'sphere'
-    'remove_asa_shell': True,  # True or False
-    'radius': 13.0,      
-
-    'chain1': 'A',             
-    'res_num1': 107,     
-    'atom1': 'CD1',      
-  }
+```python
+{
+  'type': 'sphere',          # 'cylinder' or 'sphere'
+  'remove_asa_shell': True,  # True or False
+  'radius': 13.0,      
+  'chain1': 'A',             
+  'res_num1': 107,     
+  'atom1': 'CD1',      
+}
+```
 
 The 'type' refers to whether the constraint is in the shape of a sphere or a cylinder. 
 
@@ -62,40 +64,42 @@ The atom around which the spherical constraint is centered is denoted by 'chain1
 
 Here's a sample cylinder constraint file:
 
-  {
-    'type': 'cylinder',          # 'cylinder' or 'sphere'
-    'remove_asa_shell': False,   # True or False
-
-    'radius': 10.0,      
-
-    'chain1': 'F',              
-    'res_num1': 57,             
-    'atom1': 'CE1',             
-    'axis_offset1': 0,          
-                                
-    'chain2': 'G',              
-    'res_num2': 185,            
-    'atom2': 'CA',              
-    'axis_offset2': -3,
-  }
+```python
+{
+  'type': 'cylinder',          # 'cylinder' or 'sphere'
+  'remove_asa_shell': False,   # True or False
+  'radius': 10.0,      
+  'chain1': 'F',              
+  'res_num1': 57,             
+  'atom1': 'CE1',             
+  'axis_offset1': 0,          
+                              
+  'chain2': 'G',              
+  'res_num2': 185,            
+  'atom2': 'CA',              
+  'axis_offset2': -3,
+}
+```
 
 For the cylinder constraint, 'chain1' 'res1' and 'atom1' refers to the center of the one end of the cylinder, whilst 'chain2' 'res2' 'atom2' refers to the center at the other end of the cylinder. The length of the cylinder is inferred from the inter-atomic distance between these two atoms. The 'axis_offset1' and 'axis_offset2' allows the length of the cylinder to be adjusted along the cylinder aixs.
 
 
 
-# Default options
+## Default options
   
 Default values for various parameters are stored in hollow.txt. If you use the program a lot, you might want to fine tune these options.
-                        
-  {
-    'grid_spacing': 1.0,
-    'interior_probe': 1.444,
-    'surface_probe': 8.0,
-    'bfactor_probe': 0.0,
-    'res_type': 'HOH',
-    'atom_type': 'O',
-    'atom_field': 'ATOM'
-  }
+            
+```python
+{
+  'grid_spacing': 1.0,
+  'interior_probe': 1.444,
+  'surface_probe': 8.0,
+  'bfactor_probe': 0.0,
+  'res_type': 'HOH',
+  'atom_type': 'O',
+  'atom_field': 'ATOM'
+}
+```
 
 The 'grid_spacing' determines how detailed the resultant fake atoms will be in the output PDB file. Since the program is written in standard Python, the object that holds the information about the grid runs across memory constraints. That is why it is suggested that a medium resolution of 1.0 angstrom is used in a first spacing. Another problem is that a finer grid will generate a lot of fake atoms. This runs into the problem of displaying the atoms in the protein viewer. 
 
@@ -109,44 +113,49 @@ Three other options are also given, and these relate to the chemistry of the fak
 
 
 
-# Atomic radii
+## Atomic radii
   
 In order to calculate the accessible surface area, we need the atomic radii. In the program, a set of standard atomic radii are read from the radii.txt. Edit this file to add or change radii for different elements. If the element is not defined, we give it a default of 1.8 angstroms (identified as element '.' in the radii.txt).
 
 
 
-# B-factors
+## B-factors
 
 We also calculate appropriate B-factors of every fake atom, by averaging over the heavy protein atoms around each fake atom. This is controlled by the command-line option 'BFACTOR_PROBE'.
 
 
 
-# Works with PyMol
+## Works with PyMol
 
 We developed this program with output designed to be easily viewed and manipulated with PyMol, an open-source protein viewer. By default, the hollow spheres are stored with the "ATOM" field as water oxygen molecules. Pymol can draw the molecular surface of overlapping fake water molecules as it interprets "ATOM" as if the atoms belong to a pseudo polymer.
 
 
 
-# Use in IDLE
+## Use in IDLE
 
 Hollow can also be imported as a PYTHON module. This allows hollow to be used in the PYTHON command-line, for example:
 
-   import hollow
-   hollow.make_hollow_spheres(
-      '1abc.pdb', 
-      output_pdb='hollow.pdb', 
-      grid_spacing=0.1, 
-      constraint_file="my_constraint")
-  
+
+```python
+import hollow
+hollow.make_hollow_spheres(
+   '1abc.pdb', 
+   output_pdb='hollow.pdb', 
+   grid_spacing=0.1, 
+   constraint_file="my_constraint")
+```
+
 the parameters to the make_hollow_spheres function are:
 
-  def make_hollow_spheres(
-      pdb, 
-      out_pdb="",
-      grid_spacing=defaults.grid_spacing,
-      size_interior_probe=defaults.interior_probe,
-      is_skip_waters=defaults.is_skip_waters,
-      size_surface_probe=defaults.surface_probe,
-      constraint_file="", 
-      size_bfactor_probe=defaults.bfactor_probe):
 
+```python
+def make_hollow_spheres(
+    pdb, 
+    out_pdb="",
+    grid_spacing=defaults.grid_spacing,
+    size_interior_probe=defaults.interior_probe,
+    is_skip_waters=defaults.is_skip_waters,
+    size_surface_probe=defaults.surface_probe,
+    constraint_file="", 
+    size_bfactor_probe=defaults.bfactor_probe):
+```
