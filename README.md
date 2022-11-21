@@ -12,7 +12,7 @@ There are two effective modes to run this program: an automated mode that explic
 
 To see the options, type in the command line: 
   
-  python hollow.py
+    python hollow.py
   
 The program requires Python 2.4 or higher. 
 
