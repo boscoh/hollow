@@ -223,7 +223,7 @@ class Molecule:
     def write_pdb(self, pdb):
         f = open(pdb, "w")
         n_atom = 0
-        for atom in sorted(self._atoms, cmp=cmp_atom):
+        for atom in sorted(self._atoms, key=lambda a: a.num):
             n_atom += 1
             atom.num = n_atom
             f.write(atom.pdb_str() + "\n")
