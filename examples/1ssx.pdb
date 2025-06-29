@@ -1,6 +1,5 @@
 HEADER    HYDROLASE                               24-MAR-04   1SSX              
-TITLE     0.83A RESOLUTION CRYSTAL STRUCTURE OF ALPHA-LYTIC PROTEASE            
-TITLE    2 AT PH 8                                                              
+TITLE     0.83A RESOLUTION CRYSTAL STRUCTURE OF ALPHA-LYTIC PROTEASE AT PH 8    
 COMPND    MOL_ID: 1;                                                            
 COMPND   2 MOLECULE: ALPHA-LYTIC PROTEASE;                                      
 COMPND   3 CHAIN: A;                                                            
@@ -17,23 +16,23 @@ SOURCE   6 EXPRESSION_SYSTEM_TAXID: 562;
 SOURCE   7 EXPRESSION_SYSTEM_STRAIN: D1210;                                     
 SOURCE   8 EXPRESSION_SYSTEM_VECTOR_TYPE: IPTG-INDUCIBLE PLASMID;               
 SOURCE   9 EXPRESSION_SYSTEM_PLASMID: PALP12                                    
-KEYWDS    A-LYTIC PROTEASE, SERINE PROTEASE, ULTRA-HIGH RESOLUTION,             
-KEYWDS   2 PROTEIN FOLDING, PROTEIN STABILITY, PACKING DISTORTION,              
-KEYWDS   3 HYDROLASE                                                            
+KEYWDS    A-LYTIC PROTEASE, SERINE PROTEASE, PROTEIN FOLDING, PROTEIN           
+KEYWDS   2 STABILITY, PACKING DISTORTION, HYDROLASE                             
 EXPDTA    X-RAY DIFFRACTION                                                     
 AUTHOR    C.N.FUHRMANN,D.A.AGARD                                                
+REVDAT   5   09-OCT-24 1SSX    1       REMARK                                   
+REVDAT   4   23-AUG-23 1SSX    1       REMARK                                   
+REVDAT   3   13-JUL-11 1SSX    1       VERSN                                    
 REVDAT   2   24-FEB-09 1SSX    1       VERSN                                    
 REVDAT   1   04-MAY-04 1SSX    0                                                
 JRNL        AUTH   C.N.FUHRMANN,B.A.KELCH,N.OTA,D.A.AGARD                       
-JRNL        TITL   THE 0.83A RESOLUTION CRYSTAL STRUCTURE OF                    
-JRNL        TITL 2 ALPHA-LYTIC PROTEASE REVEALS THE DETAILED                    
-JRNL        TITL 3 STRUCTURE OF THE ACTIVE SITE AND IDENTIFIES A                
-JRNL        TITL 4 SOURCE OF CONFORMATIONAL STRAIN.                             
+JRNL        TITL   THE 0.83A RESOLUTION CRYSTAL STRUCTURE OF ALPHA-LYTIC        
+JRNL        TITL 2 PROTEASE REVEALS THE DETAILED STRUCTURE OF THE ACTIVE SITE   
+JRNL        TITL 3 AND IDENTIFIES A SOURCE OF CONFORMATIONAL STRAIN.            
 JRNL        REF    J.MOL.BIOL.                   V. 338   999 2004              
 JRNL        REFN                   ISSN 0022-2836                               
 JRNL        PMID   15111063                                                     
 JRNL        DOI    10.1016/J.JMB.2004.03.018                                    
-REMARK   1                                                                      
 REMARK   2                                                                      
 REMARK   2 RESOLUTION.    0.83 ANGSTROMS.                                       
 REMARK   3                                                                      
@@ -66,14 +65,14 @@ REMARK   3   FREE R VALUE TEST SET COUNT   (F>4SIG(F)) : 15834
 REMARK   3   TOTAL NUMBER OF REFLECTIONS   (F>4SIG(F)) : 158308                 
 REMARK   3                                                                      
 REMARK   3  NUMBER OF NON-HYDROGEN ATOMS USED IN REFINEMENT.                    
-REMARK   3   PROTEIN ATOMS      : 1587                                          
+REMARK   3   PROTEIN ATOMS      : 1391                                          
 REMARK   3   NUCLEIC ACID ATOMS : 0                                             
-REMARK   3   HETEROGEN ATOMS    : 25                                            
-REMARK   3   SOLVENT ATOMS      : 571                                           
+REMARK   3   HETEROGEN ATOMS    : 32                                            
+REMARK   3   SOLVENT ATOMS      : 467                                           
 REMARK   3                                                                      
 REMARK   3  MODEL REFINEMENT.                                                   
-REMARK   3   OCCUPANCY SUM OF NON-HYDROGEN ATOMS      : 1767.20                 
-REMARK   3   OCCUPANCY SUM OF HYDROGEN ATOMS          : 1362.61                 
+REMARK   3   OCCUPANCY SUM OF NON-HYDROGEN ATOMS      : 1767.2                  
+REMARK   3   OCCUPANCY SUM OF HYDROGEN ATOMS          : 1362.6                  
 REMARK   3   NUMBER OF DISCRETELY DISORDERED RESIDUES : 23                      
 REMARK   3   NUMBER OF LEAST-SQUARES PARAMETERS       : 19125                   
 REMARK   3   NUMBER OF RESTRAINTS                     : 20884                   
@@ -98,24 +97,23 @@ REMARK   3   SPECIAL CASE: NULL
 REMARK   3                                                                      
 REMARK   3  OTHER REFINEMENT REMARKS: HYDROGEN ATOMS WERE INCLUDED IN THE       
 REMARK   3  REFINEMENT AS "RIDING HYDROGENS", WITH POSITION AND GEOMETRY        
-REMARK   3  FIXED TO THOSE VALUES DEFINED BY SHELXL-97. METHYL AND              
-REMARK   3  HYDROXYL HYDROGENS ON SINGLE-CONFORMER SIDECHAINS WERE EACH         
-REMARK   3  POSITIONED AT A TORSION ANGLE THAT BEST SATISFIED POSITIVE          
-REMARK   3  DIFFERENCE ELECTRON DENSITY (USING INSTRUCTIONS HFIX 137 AND        
-REMARK   3  HFIX 147, RESPECTIVELY). IT SHOULD BE NOTED THAT THE LENGTH OF      
-REMARK   3  DONOR-HYDROGEN BONDS IN THIS STRUCTURE ARE LIKELY SHORTER THAN      
-REMARK   3  THEIR TRUE INTERNUCLEAR DISTANCE; THESE BOND LENGTHS ARE            
-REMARK   3  DEFINED BY SHELXL-97 PARAMETERS. THE POSITIONS OF ONLY FOUR         
-REMARK   3  HYDROGEN ATOMS WERE ALLOWED TO REFINE FREELY: HIS57 HD1, HIS57      
-REMARK   3  HE1, SER214 HG, AND GLY193 HN. DURING THE FINAL STAGES OF           
-REMARK   3  REFINEMENT, GEOMETRICAL RESTRAINTS WERE RELEASED FOR ALL NON-       
-REMARK   3  HYDROGEN ATOMS IN RESIDUES WITH SINGLE CONFORMATIONS. SEE           
-REMARK   3  PUBLICATION FOR MORE DETAILS.                                       
+REMARK   3  FIXED TO THOSE VALUES DEFINED BY SHELXL-97. METHYL AND HYDROXYL     
+REMARK   3  HYDROGENS ON SINGLE-CONFORMER SIDECHAINS WERE EACH POSITIONED AT    
+REMARK   3  A TORSION ANGLE THAT BEST SATISFIED POSITIVE DIFFERENCE ELECTRON    
+REMARK   3  DENSITY (USING INSTRUCTIONS HFIX 137 AND HFIX 147, RESPECTIVELY)    
+REMARK   3  . IT SHOULD BE NOTED THAT THE LENGTH OF DONOR-HYDROGEN BONDS IN     
+REMARK   3  THIS STRUCTURE ARE LIKELY SHORTER THAN THEIR TRUE INTERNUCLEAR      
+REMARK   3  DISTANCE; THESE BOND LENGTHS ARE DEFINED BY SHELXL-97               
+REMARK   3  PARAMETERS. THE POSITIONS OF ONLY FOUR HYDROGEN ATOMS WERE          
+REMARK   3  ALLOWED TO REFINE FREELY: HIS57 HD1, HIS57 HE1, SER214 HG, AND      
+REMARK   3  GLY193 HN. DURING THE FINAL STAGES OF REFINEMENT, GEOMETRICAL       
+REMARK   3  RESTRAINTS WERE RELEASED FOR ALL NON-HYDROGEN ATOMS IN RESIDUES     
+REMARK   3  WITH SINGLE CONFORMATIONS. SEE PUBLICATION FOR MORE DETAILS.        
 REMARK   4                                                                      
-REMARK   4 1SSX COMPLIES WITH FORMAT V. 3.15, 01-DEC-08                         
+REMARK   4 1SSX COMPLIES WITH FORMAT V. 3.30, 13-JUL-11                         
 REMARK 100                                                                      
 REMARK 100 THIS ENTRY HAS BEEN PROCESSED BY RCSB ON 01-APR-04.                  
-REMARK 100 THE RCSB ID CODE IS RCSB021975.                                      
+REMARK 100 THE DEPOSITION ID IS D_1000021975.                                   
 REMARK 200                                                                      
 REMARK 200 EXPERIMENTAL DETAILS                                                 
 REMARK 200  EXPERIMENT TYPE                : X-RAY DIFFRACTION                  
@@ -132,10 +130,10 @@ REMARK 200  MONOCHROMATIC OR LAUE    (M/L) : M
 REMARK 200  WAVELENGTH OR RANGE        (A) : 0.785                              
 REMARK 200  MONOCHROMATOR                  : SINGLE CRYSTAL SI(311) BENT        
 REMARK 200                                   MONOCHROMATOR                      
-REMARK 200  OPTICS                         : FLAT MIRROR (VERTICAL              
-REMARK 200                                   FOCUSING); SINGLE CRYSTAL          
-REMARK 200                                   SI(311) BENT MONOCHROMATOR         
-REMARK 200                                   (HORIZONTAL FOCUSING)              
+REMARK 200  OPTICS                         : FLAT MIRROR (VERTICAL FOCUSING);   
+REMARK 200                                   SINGLE CRYSTAL SI(311) BENT        
+REMARK 200                                   MONOCHROMATOR (HORIZONTAL          
+REMARK 200                                   FOCUSING)                          
 REMARK 200                                                                      
 REMARK 200  DETECTOR TYPE                  : IMAGE PLATE                        
 REMARK 200  DETECTOR MANUFACTURER          : MARRESEARCH                        
@@ -174,8 +172,8 @@ REMARK 280 CRYSTAL
 REMARK 280 SOLVENT CONTENT, VS   (%): 51.00                                     
 REMARK 280 MATTHEWS COEFFICIENT, VM (ANGSTROMS**3/DA): 2.51                     
 REMARK 280                                                                      
-REMARK 280 CRYSTALLIZATION CONDITIONS: 1.3M LITHIUM SULFATE, 0.02M TRIS,        
-REMARK 280  PH 8.0, VAPOR DIFFUSION, HANGING DROP, TEMPERATURE 298K             
+REMARK 280 CRYSTALLIZATION CONDITIONS: 1.3M LITHIUM SULFATE, 0.02M TRIS, PH     
+REMARK 280  8.0, VAPOR DIFFUSION, HANGING DROP, TEMPERATURE 298K                
 REMARK 290                                                                      
 REMARK 290 CRYSTALLOGRAPHIC SYMMETRY                                            
 REMARK 290 SYMMETRY OPERATORS FOR SPACE GROUP: P 32 2 1                         
@@ -253,7 +251,10 @@ REMARK 500
 REMARK 500 THE FOLLOWING ATOMS ARE IN CLOSE CONTACT.                            
 REMARK 500                                                                      
 REMARK 500  ATM1  RES C  SSEQI   ATM2  RES C  SSEQI           DISTANCE          
+REMARK 500  HH22  ARG A   192     O    HOH A   570              0.96            
 REMARK 500   NH2  ARG A   192     O    HOH A   570              1.28            
+REMARK 500   H    GLY A   193     O1   SO4 A   248              1.49            
+REMARK 500   H    GLY A   193     O3   SO4 A   248              1.56            
 REMARK 500                                                                      
 REMARK 500 REMARK: NULL                                                         
 REMARK 500                                                                      
@@ -296,7 +297,7 @@ REMARK 500
 REMARK 500  M RES CSSEQI ATM1   ATM2   ATM3                                     
 REMARK 500    ARG A 120A  CA  -  CB  -  CG  ANGL. DEV. =  13.8 DEGREES          
 REMARK 500    ARG A 120A  CG  -  CD  -  NE  ANGL. DEV. = -12.9 DEGREES          
-REMARK 500    ARG A 141   NE  -  CZ  -  NH1 ANGL. DEV. =  -3.3 DEGREES          
+REMARK 500    ARG A 141   NE  -  CZ  -  NH1 ANGL. DEV. =  -3.2 DEGREES          
 REMARK 500    ARG A 178   NE  -  CZ  -  NH1 ANGL. DEV. =  -3.8 DEGREES          
 REMARK 500    ARG A 178   NE  -  CZ  -  NH2 ANGL. DEV. =   4.8 DEGREES          
 REMARK 500    CYS A 189   CA  -  CB  -  SG  ANGL. DEV. =   7.7 DEGREES          
@@ -325,6 +326,7 @@ REMARK 500    ALA A  39      -95.43   -133.15
 REMARK 500    ASN A  60       -2.29     82.25                                   
 REMARK 500    PRO A  95     -155.85    -77.28                                   
 REMARK 500    SER A 120H    -164.07   -105.80                                   
+REMARK 500    SER A 195      127.88    -37.35                                   
 REMARK 500                                                                      
 REMARK 500 REMARK: NULL                                                         
 REMARK 500                                                                      
@@ -340,61 +342,31 @@ REMARK 500 (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN IDENTIFIER;
 REMARK 500 SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                             
 REMARK 500                                                                      
 REMARK 500  M RES CSSEQI        RMS     TYPE                                    
-REMARK 500    ARG A 138         0.10    SIDE_CHAIN                              
+REMARK 500    ARG A 138         0.10    SIDE CHAIN                              
 REMARK 500                                                                      
 REMARK 500 REMARK: NULL                                                         
-REMARK 525                                                                      
-REMARK 525 SOLVENT                                                              
-REMARK 525                                                                      
-REMARK 525 THE SOLVENT MOLECULES HAVE CHAIN IDENTIFIERS THAT                    
-REMARK 525 INDICATE THE POLYMER CHAIN WITH WHICH THEY ARE MOST                  
-REMARK 525 CLOSELY ASSOCIATED. THE REMARK LISTS ALL THE SOLVENT                 
-REMARK 525 MOLECULES WHICH ARE MORE THAN 5A AWAY FROM THE                       
-REMARK 525 NEAREST POLYMER CHAIN (M = MODEL NUMBER;                             
-REMARK 525 RES=RESIDUE NAME; C=CHAIN IDENTIFIER; SSEQ=SEQUENCE                  
-REMARK 525 NUMBER; I=INSERTION CODE):                                           
-REMARK 525                                                                      
-REMARK 525  M RES CSSEQI                                                        
-REMARK 525    HOH A 350        DISTANCE =  7.20 ANGSTROMS                       
-REMARK 525    HOH A 448        DISTANCE =  7.04 ANGSTROMS                       
-REMARK 525    HOH A 613        DISTANCE =  7.75 ANGSTROMS                       
-REMARK 525    HOH A 613        DISTANCE =  7.75 ANGSTROMS                       
-REMARK 525    HOH A 627        DISTANCE =  7.82 ANGSTROMS                       
-REMARK 525    HOH A 628        DISTANCE = 10.07 ANGSTROMS                       
-REMARK 525    HOH A 634        DISTANCE =  6.82 ANGSTROMS                       
-REMARK 525    HOH A 635        DISTANCE =  6.08 ANGSTROMS                       
-REMARK 525    HOH A 636        DISTANCE =  6.20 ANGSTROMS                       
-REMARK 525    HOH A 638        DISTANCE = 12.10 ANGSTROMS                       
-REMARK 525    HOH A 642        DISTANCE =  5.34 ANGSTROMS                       
-REMARK 525    HOH A 643        DISTANCE =  6.48 ANGSTROMS                       
-REMARK 525    HOH A 644        DISTANCE = 10.32 ANGSTROMS                       
-REMARK 525    HOH A 647        DISTANCE =  6.40 ANGSTROMS                       
-REMARK 525    HOH A 649        DISTANCE =  5.51 ANGSTROMS                       
-REMARK 525    HOH A 651        DISTANCE =  9.08 ANGSTROMS                       
-REMARK 525    HOH A 652        DISTANCE =  5.89 ANGSTROMS                       
-REMARK 525    HOH A 664        DISTANCE =  7.74 ANGSTROMS                       
-REMARK 525    HOH A 669        DISTANCE =  7.94 ANGSTROMS                       
-REMARK 525    HOH A 698        DISTANCE =  7.44 ANGSTROMS                       
-REMARK 525    HOH A 726        DISTANCE =  5.03 ANGSTROMS                       
-REMARK 525    HOH A 736        DISTANCE =  6.48 ANGSTROMS                       
-REMARK 525    HOH A 761        DISTANCE =  5.39 ANGSTROMS                       
 REMARK 800                                                                      
 REMARK 800 SITE                                                                 
 REMARK 800 SITE_IDENTIFIER: AC1                                                 
 REMARK 800 EVIDENCE_CODE: SOFTWARE                                              
 REMARK 800 SITE_DESCRIPTION: BINDING SITE FOR RESIDUE SO4 A 246                 
+REMARK 800                                                                      
 REMARK 800 SITE_IDENTIFIER: AC2                                                 
 REMARK 800 EVIDENCE_CODE: SOFTWARE                                              
 REMARK 800 SITE_DESCRIPTION: BINDING SITE FOR RESIDUE SO4 A 247                 
+REMARK 800                                                                      
 REMARK 800 SITE_IDENTIFIER: AC3                                                 
 REMARK 800 EVIDENCE_CODE: SOFTWARE                                              
 REMARK 800 SITE_DESCRIPTION: BINDING SITE FOR RESIDUE SO4 A 248                 
+REMARK 800                                                                      
 REMARK 800 SITE_IDENTIFIER: AC4                                                 
 REMARK 800 EVIDENCE_CODE: SOFTWARE                                              
 REMARK 800 SITE_DESCRIPTION: BINDING SITE FOR RESIDUE SO4 A 203                 
+REMARK 800                                                                      
 REMARK 800 SITE_IDENTIFIER: AC5                                                 
 REMARK 800 EVIDENCE_CODE: SOFTWARE                                              
 REMARK 800 SITE_DESCRIPTION: BINDING SITE FOR RESIDUE GOL A 249                 
+REMARK 800                                                                      
 REMARK 800 SITE_IDENTIFIER: AC6                                                 
 REMARK 800 EVIDENCE_CODE: SOFTWARE                                              
 REMARK 800 SITE_DESCRIPTION: BINDING SITE FOR RESIDUE GOL A 250                 
@@ -403,8 +375,8 @@ REMARK 900 RELATED ENTRIES
 REMARK 900 RELATED ID: 1TAL   RELATED DB: PDB                                   
 REMARK 900 THE SAME PROTEIN AT 1.5A RESOLUTION                                  
 REMARK 900 RELATED ID: 2ULL   RELATED DB: PDB                                   
-REMARK 900 DATA FROM 1TAL.PDB WERE MODELED HERE WITH 16 CONFORMATIONS           
-REMARK 900 OF THE ENTIRE PROTEIN                                                
+REMARK 900 DATA FROM 1TAL.PDB WERE MODELED HERE WITH 16 CONFORMATIONS OF THE    
+REMARK 900 ENTIRE PROTEIN                                                       
 REMARK 900 RELATED ID: 2ALP   RELATED DB: PDB                                   
 REMARK 900 THE SAME PROTEIN AT 1.7A RESOLUTION                                  
 DBREF  1SSX A   15A  245  UNP    P00778   PRLA_LYSEN     200    397             
@@ -432,6 +404,7 @@ HET    GOL  A 249      14
 HET    GOL  A 250      14                                                       
 HETNAM     SO4 SULFATE ION                                                      
 HETNAM     GOL GLYCEROL                                                         
+HETSYN     GOL GLYCERIN; PROPANE-1,2,3-TRIOL                                    
 FORMUL   2  SO4    4(O4 S 2-)                                                   
 FORMUL   6  GOL    2(C3 H8 O3)                                                  
 FORMUL   8  HOH   *467(H2 O)                                                    
@@ -6295,5 +6268,5 @@ CONECT 3096 3089
 CONECT 3097 3090                                                                
 CONECT 3098 3090                                                                
 CONECT 3099 3091                                                                
-MASTER      374    0    6    3   18    0   20    6 3641    1   59   16          
+MASTER      346    0    6    3   18    0   20    6 1890    1   59   16          
 END                                                                             
