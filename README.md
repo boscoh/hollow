@@ -7,17 +7,28 @@
 
 Hollow generates fake atoms that identifies voids, pockets, channels and depressions in a protein structure specified in the PDB format. 
 
+This version 2.0 (Jun 2025):
+- fully Python 3
+- installable via pypi
+- reads/writes mmCif
+- memory efficient data structures
+- spatial hashing
+
 ## Quick install
 
 1. If you have [uv](https://docs.astral.sh/uv/) installed, then for a global install:
 
        >> uv tool install pdbstruct@latest
 
-2. Another alternative is to use [pipx](https://github.com/pypa/pipx)
+2. To run in an isolated python env (don't pollute the global paths):
+
+       >> uvx pdbstruct
+
+3. Another alternative is to use [pipx](https://github.com/pypa/pipx) to install globally:
 
        >> pipx install pdbstruct
 
-3. If you have a [venv](https://docs.python.org/3/library/venv.html) python environment setup, then:
+4If you have a [venv](https://docs.python.org/3/library/venv.html) python environment setup, then:
 
        >> pip install pdbstruct
 
@@ -36,6 +47,19 @@ Here are some [illustrated tutorials](https://boscoh.github.io/hollow/), includi
 
   2) The channel surface of a phosphate proin:
        https://boscoh.github.io/hollow/channel.html
+
+
+## Changelog
+
+- Version 2.0 (Jun 2025). Python 3. pypi. mmCif. Memory effient
+    representation of protein. Spatial hashing to speed pair-wise
+    search. Removed idle functions. moved to pdbstruct 2.0
+- Version 1.3 (May 2020). Python 3/2 compatible.</li>
+- Version 1.2 (Aug 2011). Changed exceptions to work with Python 2.7
+    (thanks Joshua Adelman)
+- Version 1.1 (Feb 2009). Faster initialization of grid. Works in the
+    IDLE Python interpreter.
+
 
 ## Modes of Operation
 
@@ -143,45 +167,3 @@ We also calculate appropriate B-factors of every fake atom, by averaging over th
 ### Works with PyMol
 
 We developed this program with output designed to be easily viewed and manipulated with PyMol, an open-source protein viewer. By default, the hollow spheres are stored with the "ATOM" field as water oxygen molecules. Pymol can draw the molecular surface of overlapping fake water molecules as it interprets "ATOM" as if the atoms belong to a pseudo polymer.
-
-
-
-### Use in IDLE
-
-Hollow can also be imported as a PYTHON module. This allows hollow to be used in the PYTHON command-line, for example:
-
-
-```python
-import hollow
-hollow.make_hollow_spheres(
-   '1abc.pdb', 
-   output_pdb='hollow.pdb', 
-   grid_spacing=0.1, 
-   constraint_file="my_constraint")
-```
-
-the parameters to the make_hollow_spheres function are:
-
-
-```python
-def make_hollow_spheres(
-    pdb, 
-    out_pdb="",
-    grid_spacing=defaults.grid_spacing,
-    size_interior_probe=defaults.interior_probe,
-    is_skip_waters=defaults.is_skip_waters,
-    size_surface_probe=defaults.surface_probe,
-    constraint_file="", 
-    size_bfactor_probe=defaults.bfactor_probe):
-```
-
-## Changelog
-
-- Version 2.0 (Jun 2025). Python 3. pypi. mmCif. Memory effient
-    representation of protein. Spatial hashing to speed pair-wise
-    search. Removed idle functions. moved to pdbstruct 2.0
-- Version 1.3 (May 2020). Python 3/2 compatible.</li>
-- Version 1.2 (Aug 2011). Changed exceptions to work with Python 2.7
-    (thanks Joshua Adelman)
-- Version 1.1 (Feb 2009). Faster initialization of grid. Works in the
-    IDLE Python interpreter.
