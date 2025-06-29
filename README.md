@@ -28,7 +28,7 @@ This version 2.0 (Jun 2025):
 
        >> pipx install pdbstruct
 
-4If you have a [venv](https://docs.python.org/3/library/venv.html) python environment setup, then:
+4. If you have a [venv](https://docs.python.org/3/library/venv.html) python environment setup, then:
 
        >> pip install pdbstruct
 
@@ -36,7 +36,7 @@ To see the options, type in the command line:
   
     hollow
   
-Note: technically the Hollow has repo has been moved to [pdbstruct](https://github.com/boscoh/pdbstruct)
+Note: technically the Hollow has repo has moved to [pdbstruct](https://github.com/boscoh/pdbstruct)
 
 ## Tutorials
 
