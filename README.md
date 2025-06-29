@@ -5,7 +5,7 @@
 
 ### (c) 2025, Bosco Ho and Franz Gruswitz 
 
-Hollow generates fake atoms that identifies voids, pockets, channels and depressions in a protein structure specified in the PDB format. 
+Hollow generates fake atoms that identifies voids, pockets, channels and depressions in a protein structure specified in a PDB/mmCIF file.
 
 This version 2.0 (Jun 2025):
 - fully Python 3
