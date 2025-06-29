@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0085)http://hollow.sourceforge.net/binding.html -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <script src="assets/analytics.js" type="text/javascript"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="assets/style.css"
+    />
+    <title>hollow - binding site of estrogen receptor</title>
+  </head>
+
+  <body>
+    <center>
+      <div id="container">
+        <h1>
+          <a href="./">HOLLOW</a>
+        </h1>
+        <h2>Binding site of the Estrogen Receptor</h2>
+        <p>
+          The ligand-binding domain of the Estrogen Receptor [<a
+            href="http://www.rcsb.org/pdb/explore/explore.do?structureId=1QKT"
+            >1QKT</a
+          >] is activated by the binding of estrogen. Here, we show how to
+          visualize this binding site.
+        </p>
+        <img src="assets/er_schematic.png" />
+
+        <p>
+          To illustrate the binding surface of estrogen, we need to delete the
+          ligand so we can construct the surface from the apo structure. We make
+          the pdb file '1qkt-apo.pdb' by deleting all waters and ligands.
+        </p>
+        <p>
+          We need to define a constraint around the site where the surface of
+          the binding site is defined by the intersection of the constraint with
+          the protein. In this case, we will use a spherical constraint, where
+          it doesn't matter if the radius extends out of the body of the
+          protein. We need to choose an atom to define the center. It's best to
+          choose an atom that is about half way into the pocket: A-LEU-384-CD1
+          (blue):
+        </p>
+        <img src="assets/er_center.png" />
+        <p>
+          Putting this all together, we type in a text file called 'constraint':
+        </p>
+        <pre><code>{
+  'remove_asa_shell': False,
+  'type': 'sphere', 
+  'radius': 12.0, 
+  'chain1': 'A', 
+  'res_num1': 384, 
+  'atom1': 'CD1', 
+}
+</code></pre>
+        <p>
+          We now run python hollow with the constraint file that will generate
+          the hollow spheres based on this constraint, with the important
+          information that hollow spheres on the surface of the sphere are
+          labeled occupancy q=0, and hollow spheres inside the sphere are
+          labeled occupancy q=1:
+        </p>
+        <pre><code>&gt;&gt;&gt; hollow -c constraint -o hollow.pdb 1qkt-apo.pdb
+</code></pre>
+        <p>
+          We now load the hollow spheres load into pymol into the objects
+          "hollow" and "1qkt". Note that we use the apo structure of 1qkt to
+          calculate hollow, but load the full structure <em>with</em> the
+          ligand:
+        </p>
+        <pre><code>&gt;&gt;&gt; pymol hollow.pdb 1qkt.pdb
+</code></pre>
+        <img src="assets/er_mesh.png" />
+
+        <p>
+          Once in pymol, we show the binding surface defined by the constraint
+          by showing the surface of hollow spheres inside the sphere (q=1) using
+          two-sided lighting:
+        </p>
+        <pre><code>pymol&gt; show surface, hollow and q&gt;0 
+pymol&gt; hide nonbonded 
+pymol&gt; set two_sided_lighting, on
+pymol&gt; set surface_quality, 1
+</code></pre>
+        <p>
+          <img src="assets/er_auto_surf.png" />
+        </p>
+        <p>
+          However, if you only want to show the surface that binds to the
+          ligand, this is also very easy to do in Pymol where you just choose
+          the subset of the hollow spheres within 5 � of the ligand:
+        </p>
+        <pre><code>pymol&gt; hide surface
+pymol&gt; select lig, resn EST
+pymol&gt; select binding_hollow, hollow and q&gt;0 and (lig around 5)
+pymol&gt; show surface, binding_hollow
+pymol&gt; cartoon tube
+</code></pre>
+
+        <p>
+          Before we show this surface, we can use similar commands to also
+          display the residues that are close to the ligand and define this
+          close binding surface
+        </p>
+        <pre><code>pymol&gt; select lining, byres lig around 5 
+pymol&gt; show sticks, lining
+pymol&gt; cartoon tube
+</code></pre>
+        <p>
+          <img src="assets/er_bind_surf.png" />
+        </p>
+        <p>Finally, we can do a detailed picture of just the binding pocket:</p>
+        <pre><code>pymol&gt; hide cartoon
+</code></pre>
+        <img src="assets/er_bind_detail.png" />
+
+        <p>
+          This process can be repeated using different grid-spacings for more
+          accurate surfaces. The size and orientation of the sphere can be
+          adjusted by varying the radius, and center of the sphere.
+        </p>
+
+        <br clear="all" />
+      </div>
+
+      <script src="assets/urchin.js" type="text/javascript"></script>
+    </center>
+  </body>
+</html>

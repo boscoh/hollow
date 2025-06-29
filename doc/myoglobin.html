@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0087)index.htmlmyoglobin.html -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./assets/style.css"
+    />
+    <title>hollow - volume filling of myoglobin</title>
+  </head>
+
+  <body>
+    <center>
+      <div id="container">
+        <h1>
+          <a href="./">HOLLOW</a>
+        </h1>
+
+        <h2>oxygen pathways in myoglobin</h2>
+
+        <p>
+          Myoglobin [<a
+            href="http://www.rcsb.org/pdb/explore/explore.do?structureId=1MBO"
+            >1MBO</a
+          >] (grey) binds oxygen (red) through a heme group (beige). The binding
+          site of oxygen is accessible through the gate at His64 (purple), which
+          swings open. The pathways that oxygen can take through the interior of
+          myoglobin are important for understanding the function of myoglobin.
+        </p>
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/myo.png" />
+        </div>
+
+        <p>
+          To illustrate the pathways of myoglobin, we generate the voids by
+          applying HOLLOW to myoglobin using the default grid-spacing 0.25 � in
+          the automated mode.
+        </p>
+
+        <code> &gt;&gt;&gt; hollow -o hollow.pdb -g 0.25 1mbo.pdb </code>
+
+        <p>
+          To view the structure with the hollow spheres, fire up
+          <a href="http://pymol.sourceforge.net/">Pymol</a>. Pymol takes
+          <a
+            href="http://137.189.50.96/kbwong/teaching/pymol/pymol_tutorial.html"
+            >a bit of work</a
+          >
+          to learn but is very powerful.
+        </p>
+
+        <code> &gt;&gt;&gt; pymol 1mbo.pdb hollow.pdb </code>
+
+        <p>
+          This will load two objects into Pymol: "1mbo" and "hollow". To start
+          with, show the hollow spheres in the typical "nonbonded" cross-hair
+          display (green).
+        </p>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/myo-mesh.png" />
+        </div>
+
+        <p>
+          First, let's look at the hollow object. Select individual hollow
+          spheres clustered in the interior, and rename this selection as the
+          "seed". You only need to select one hollow sphere in a cluster.
+        </p>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/mesh-seed.png" />
+        </div>
+
+        <p>
+          Using the pymol command expand, we can now select entire clusters
+          found in the interior of the protein:
+        </p>
+
+        <code> pymol&gt; select inner, hollow within 4 of seed </code>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/inner-mesh.png" />
+        </div>
+
+        <p>
+          We remove atoms that are not in the interior, i.e. atoms not part of
+          the "inner" selection.
+        </p>
+
+        <code> pymol&gt; remove hollow and not inner </code>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/myo-inner-mesh.png" />
+        </div>
+
+        <p>
+          Now we have the interior hollow spheres, we can show this clearly
+          using the sphere view:
+        </p>
+
+        <code>
+          pymol&gt; show sphere, inner
+          <br />
+          pymol&gt; set sphere_quality, 2
+        </code>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/myo-inner-sphere.png" />
+        </div>
+
+        <p>
+          However, a better way to view the negative space described by the
+          hollow spheres is to draw the connected surface of these interior
+          hollow spheres.
+        </p>
+
+        <code>
+          pymol&gt; show surface, inner
+          <br />
+          pymol&gt; set surface_quality, 2
+        </code>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/myo-inner-surface.png" />
+        </div>
+
+        <p>
+          Finally, we can use the hollow spheres to easily, and simply select
+          the residues that line the voids and pathways inside myoglobin. This
+          can be simply done by selecting residues of myoglobin (1mbo) in
+          proximity to the hollow spheres:
+        </p>
+
+        <code>
+          pymol&gt; select lining, byres inner around 5
+          <br />
+          pymol&gt; show sticks, lining
+          <br />
+          pymol&gt; hide everything, 1mbo and not lining
+        </code>
+
+        <div style="text-align: center">
+          <img style="width: 350px" src="./assets/lining-surface.png" />
+        </div>
+
+        <br clear="all" />
+      </div>
+
+      <script src="./assets/urchin.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        _uacct = "UA-1951685-3";
+        urchinTracker();
+      </script>
+    </center>
+  </body>
+</html>

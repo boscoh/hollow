@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0073)./ -->
+<html xmlns:https="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./assets/style.css"
+    />
+    <title>hollow - volume filling of protein structures</title>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-1951685-3");
+        pageTracker._trackPageview();
+      } catch (err) {}
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <div id="container">
+        <h1>HOLLOW</h1>
+
+        <p></p>
+        <center>
+          HOLLOW facilitates the production of surface images of proteins.
+          HOLLOW has been referenced in
+          <a
+            href="https://web.archive.org/web/20220120204030/http://www.pnas.org/content/105/46/17742.full"
+            >Ujwal et al (2008) PNAS 105:17742</a
+          >, and in
+          <a
+            href="hhttp://www.nature.com/nature/journal/v462/n7274/abs/nature08612.html"
+            >Guo et al (2009) Nature 462:808</a
+          >
+        </center>
+        <p></p>
+      </div>
+
+      <table
+        cellpadding="0"
+        cellspacing="0"
+        style="
+          border: 1px solid #888;
+          font-size: 0.8em;
+          width: 850px;
+          text-align: center;
+        "
+      >
+        <tbody>
+          <tr>
+            <td
+              colspan="3"
+              align="center"
+              style="background-color: #888; color: black"
+            >
+              instructions
+            </td>
+          </tr>
+          <tr>
+            <td style="ext-align: center; vertical-align: middle; width: 290px">
+              <br />
+              <a href="./channel.html">
+                <img style="width: 80%" src="./assets/electrostatic.png" />
+                <br /><br />
+                1. channel surfaces (and electrostatic surfaces)
+              </a>
+              <br /><br />
+            </td>
+            <td
+              style="text-align: center; vertical-align: middle; width: 270px"
+            >
+              <br />
+              <a href="./myoglobin.html">
+                <img style="width: 90%" src="./assets/myoglobin.png" /><br />
+                2. interior pathway surfaces </a
+              ><br />
+              <br /><br />
+            </td>
+            <td
+              style="text-align: center; vertical-align: middle; width: 270px"
+            >
+              <br /><br />
+              <a href="./binding.html">
+                <img style="width: 80%" src="./assets/binding.png" /><br />
+                4. ligand-binding surfaces
+              </a>
+              <br /><br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="container">
+        <h2>quick start</h2>
+
+        <p>
+          HOLLOW is a command-line utility in
+          <a href="http://python.org/download/">Python 3</a>.
+        </p>
+
+        <p>
+          If you are using <a href="https://docs.astral.sh/uv/">uv</a>, you can
+          install the tool globally:
+        </p>
+
+        <code>>>> uv tool install pdbstruct</code>
+
+        <p>Then run the command to get some help</p>
+
+        <code>>>> hollow</code>
+
+        <p>The input is a PDB or mmCIF file.</p>
+
+        <p>
+          The output is a PDB/mmCIF file of dummy water atoms that forms a
+          "cast" of the voids and channels of a protein.
+        </p>
+
+        <p>
+          In
+          <a href="http://pymol.sourceforge.net/">PyMol</a>, for instance,
+          displaying the surface of these dummy atoms provides an accurate and
+          clean representation of the interior surface of the protein.
+        </p>
+
+        <p>
+          Every parameter is adjustable as they are stored in text-based
+          configuration files. These include the grid-spacing, probe sizes and
+          atomic radii. The default atomic radii are take from the PYMOL
+          package.
+        </p>
+
+        <h2>source</h2>
+        <p style="text-align: center; width: 100%">
+          <a href="https://github.com/boscoh/pdbstruct">
+            https://github.com/boscoh/pdbstruct
+          </a>
+        </p>
+
+        <h2>change-log</h2>
+        <ul>
+          <li>
+            Version 2.0 (Jun 2025). Python 3. pypi. mmCif. Memory effient
+            representation of protein. Spatial hashing to speed pair-wise
+            search. Removed idle functions.
+          </li>
+          <li>Version 1.3 (May 2020). Python 3/2 compatible.</li>
+          <li>
+            Version 1.2 (Aug 2011). Changed exceptions to work with Python 2.7
+            (thanks Joshua Adelman)
+          </li>
+          <li>
+            Version 1.1 (Feb 2009). Faster initialization of grid. Works in the
+            IDLE Python interpreter.
+          </li>
+        </ul>
+
+        <h2>why?</h2>
+
+        <div style="text-align: center">
+          <img
+            style="float: left; padding-right: 15px"
+            src="./assets/scream.png"
+          />
+        </div>
+
+        <p>
+          Ever have trouble generating clean surfaces of voids or channels in a
+          protein viewer? Although
+          <a href="http://molvis.sdsc.edu/visres/molvisfw/titles.jsp"
+            >molecular graphics viewers</a
+          >
+          can produce sophisticated renderings of protein surfaces, it is really
+          difficult to display only the piece of surface that you want, without
+          random pieces of extraneous surfaces.
+        </p>
+
+        <p>
+          The problem is that in most graphic viewers, surfaces are generated on
+          a per atom basis. Many atoms are involved in more that one piece of
+          surface, where an atom might line a channel surface and also form part
+          of a void. Both surfaces are always displayed in relation to that
+          atom. It is impossible to remove one but not the other.
+        </p>
+
+        <h2>solution?</h2>
+
+        <p>
+          To solve this problem, HOLLOW generates a surface from a "cast" of the
+          protein surface. HOLLOW fills the interior spaces of a protein
+          structure with dummy atoms defined on an overlapping grid. The surface
+          generated by these dummy atoms can be shown to reproduce the surface
+          of the protein at the ideal limit.
+        </p>
+
+        <div style="text-align: center">
+          <img src="./assets/grid.png" />
+        </div>
+
+        <p>
+          The use of the surface of the dummy atoms allows us to focus on a
+          specific piece of the interior surface. Simply by deleting dummy
+          atoms, the interior surface can be trimmed to produce a custom portion
+          of the interior space.
+        </p>
+
+        <div style="text-align: center">
+          <img src="./assets/voids.png" />
+        </div>
+
+        <p>
+          The custom portion of the space can be used to generate interior
+          surfaces such as this channel surface of the ammonia channel. For
+          advanced coloring of the surface, the B-factor of the dummy atoms can
+          be calculated as the average of the B-factor of the protein atoms
+          surrounding the dummy atoms. This allows various colorings of the
+          surface to be conveyed through the B-factor field of the PDB files.
+        </p>
+
+        <div style="text-align: center">
+          <img src="./assets/electrostatic.png" />
+        </div>
+
+        <h2>works with others</h2>
+
+        <p>
+          The volume filling representation facilitated by HOLLOW is meant to
+          complement other programs that identify voids, pockets and channels,
+          such as
+          <a
+            href="http://www.csb.yale.edu/userguides/datamanip/dock/DOCK_4.0.1/html/Manual.20.html"
+            >SPHGEN</a
+          >
+          and
+          <a href="http://sts-fw.bioengr.uic.edu/castp/">CASTp</a>, which
+          identify binding sites but cannot produce output that can be rendered
+          in standard molecular graphics software. HOLLOW can be used to help
+          render these binding pockets.
+        </p>
+
+        <p>
+          Programs such as
+          <a href="http://mole.chemi.muni.cz/">MOLE</a>,
+          <a href="http://loschmidt.chemi.muni.cz/caver/">CAVER</a>
+          and
+          <a href="http://d2o.biop.ox.ac.uk:38080/doc/index.html">HOLE</a>,
+          generates low-resolution surfaces of channels in a protein.
+        </p>
+
+        <table align="center" style="font-size: 0.8em">
+          <tbody>
+            <tr>
+              <td style="text-align: center">
+                MOLE surface<br /><img src="./assets/compare_mole.png" />
+              </td>
+              <td style="text-align: center">
+                HOLLOW surface<br /><img src="./assets/compare_hollow.png" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <a href="http://www.biochem.ucl.ac.uk/~roman/surfnet/surfnet.html"
+            >SURFNET</a
+          >
+          generates low-resolution surfaces of binding pockets. Given these
+          surfaces as a starting point, HOLLOW can be used to display
+          hi-resolution equivalents of these surfaces.
+        </p>
+
+        <h2>reference</h2>
+
+        <p>
+          <b
+            >HOLLOW: Generating Accurate Representations of Channel and Interior
+            Surfaces in Molecular Structures</b
+          >
+          Bosco K. Ho and Franz Gruswitz.
+          <i>BMC Structural Biology (2008) 8:49.</i> [<a
+            href="http://www.biomedcentral.com/1472-6807/8/49"
+            >link</a
+          >,
+          <a href="http://www.biomedcentral.com/content/pdf/1472-6807-8-49.pdf"
+            >pdf</a
+          >]
+        </p>
+
+        <h2>authors</h2>
+
+        <ul>
+          <li>
+            Franz Gruswitz<br />
+            <a href="https://www.nextrnatx.com//"
+              >NextRNA Therapeutics, Boston</a
+            >
+          </li>
+          <li>
+            <a href="http://boscoh.com/about.html">Bosco Ho</a>
+            <br />
+            <a href="http://thoughtworks.com">Thoughtworks, Melbourne</a>
+          </li>
+        </ul>
+
+        <h2>contact</h2>
+
+        <p>
+          If you have questions or bug reports, email:
+          <a href="mailto:boscoh@gmail.com">boscoh@gmail.com</a>. <br />
+        </p>
+
+        <br clear="all" />
+      </div>
+
+      <script src="./assets/urchin.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        _uacct = "UA-1951685-3";
+        urchinTracker();
+      </script>
+    </center>
+  </body>
+</html>

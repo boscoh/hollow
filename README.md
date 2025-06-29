@@ -1,23 +1,35 @@
 
 
 
-# Hollow 1.3 
-### (c) 2021, Bosco Ho and Franz Gruswitz 
+# Hollow 2.0
 
-
+### (c) 2025, Bosco Ho and Franz Gruswitz 
 
 Hollow generates fake atoms that identifies voids, pockets, channels and depressions in a protein structure specified in the PDB format. 
 
-There are two effective modes to run this program: an automated mode that explicitly deduces the molecular surface, and a constrained mode that works in a pre-specified volume.
+## Quick install
+
+1. If you have [uv](https://docs.astral.sh/uv/) installed, then for a global install:
+
+       >> uv tool install pdbstruct@latest
+
+2. Another alternative is to use [pipx](https://github.com/pypa/pipx)
+
+       >> pipx install pdbstruct
+
+3. If you have a [venv](https://docs.python.org/3/library/venv.html) python environment setup, then:
+
+       >> pip install pdbstruct
 
 To see the options, type in the command line: 
   
-    python hollow.py
+    hollow
   
-The program requires Python 2.4 or higher. 
+Note: technically the Hollow has repo has been moved to [pdbstruct](https://github.com/boscoh/pdbstruct)
 
-Please refer to the website for illustrated tutorials:
-Please refer to the [website](https://boscoh.github.io/hollow/) for illustrated tutorials:
+## Tutorials
+
+Here are some [illustrated tutorials](https://boscoh.github.io/hollow/), including:
 
   1) The interior pathways of myoglobin:
        https://boscoh.github.io/hollow/myoglobin.html
@@ -25,8 +37,11 @@ Please refer to the [website](https://boscoh.github.io/hollow/) for illustrated 
   2) The channel surface of a phosphate proin:
        https://boscoh.github.io/hollow/channel.html
 
+## Modes of Operation
 
-## Automated Surface Detection Mode
+There are two effective modes to run this program: an automated mode that explicitly deduces the molecular surface, and a constrained mode that works in a pre-specified volume.
+
+### Automated Surface Detection Mode
 
 In the automated (also the default) mode, a grid is constructed over the entire protein. To analyze large proteins, due to the large size of the resultant grid, use only coarse grid spacings of 1.0 angstroms or 0.5 angstroms. 
 
@@ -35,7 +50,7 @@ The automated mode requires several intermediate calculations. The Accessible Su
 
 
 
-## Constrained Mode
+### Constrained Mode
 
 In the constrained mode, either a sphere or a cylinder is specified in a separate file. Grid points are constructed within these constraints, and thus, there is no need for the costly calculation that sweeps over the entire surface. 
 
@@ -85,7 +100,7 @@ For the cylinder constraint, 'chain1' 'res1' and 'atom1' refers to the center of
 
 
 
-## Default options
+### Default options
   
 Default values for various parameters are stored in hollow.txt. If you use the program a lot, you might want to fine tune these options.
             
@@ -113,25 +128,25 @@ Three other options are also given, and these relate to the chemistry of the fak
 
 
 
-## Atomic radii
+### Atomic radii
   
 In order to calculate the accessible surface area, we need the atomic radii. In the program, a set of standard atomic radii are read from the radii.txt. Edit this file to add or change radii for different elements. If the element is not defined, we give it a default of 1.8 angstroms (identified as element '.' in the radii.txt).
 
 
 
-## B-factors
+### B-factors
 
 We also calculate appropriate B-factors of every fake atom, by averaging over the heavy protein atoms around each fake atom. This is controlled by the command-line option 'BFACTOR_PROBE'.
 
 
 
-## Works with PyMol
+### Works with PyMol
 
 We developed this program with output designed to be easily viewed and manipulated with PyMol, an open-source protein viewer. By default, the hollow spheres are stored with the "ATOM" field as water oxygen molecules. Pymol can draw the molecular surface of overlapping fake water molecules as it interprets "ATOM" as if the atoms belong to a pseudo polymer.
 
 
 
-## Use in IDLE
+### Use in IDLE
 
 Hollow can also be imported as a PYTHON module. This allows hollow to be used in the PYTHON command-line, for example:
 
@@ -159,3 +174,14 @@ def make_hollow_spheres(
     constraint_file="", 
     size_bfactor_probe=defaults.bfactor_probe):
 ```
+
+## Changelog
+
+- Version 2.0 (Jun 2025). Python 3. pypi. mmCif. Memory effient
+    representation of protein. Spatial hashing to speed pair-wise
+    search. Removed idle functions. moved to pdbstruct 2.0
+- Version 1.3 (May 2020). Python 3/2 compatible.</li>
+- Version 1.2 (Aug 2011). Changed exceptions to work with Python 2.7
+    (thanks Joshua Adelman)
+- Version 1.1 (Feb 2009). Faster initialization of grid. Works in the
+    IDLE Python interpreter.
